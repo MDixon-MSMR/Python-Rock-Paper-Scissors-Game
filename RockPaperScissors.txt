@@ -1,0 +1,115 @@
+def rps():
+    
+    #set up game
+    import random
+    import time
+    move = ''
+    w = 0
+    l = 0
+    t = 0
+    game = 0  
+    
+    #intro to game
+    print('Let\'s play...')
+    time.sleep(1)
+    print('Rock.')
+    time.sleep(1) 
+    print('Paper!')
+    time.sleep(1)
+    print('SCISSORS!')
+    time.sleep(1)
+    
+    
+    while ((w < 3) and (l < 3)):
+        #print(str(w) + ' Wins, ' + str(l) + ' losses, ' + str(t) + ' Ties')
+        print('Enter your move: (r)ock, (p)aper, (s)cissors, (c)heck score, or (q)uit')
+        move = str(input())
+        comp = random.randint(0,2)
+    
+    #game responses
+        #Player selects (p)aper 
+        if move == ('p' or 'P'):
+            print('PAPER versus...')
+            time.sleep(1)
+            if comp == 0:
+                print('PAPER!')
+                t = t + 1
+                time.sleep(1)
+                print('Tie! We now have ' + str(t) + ' ties.')
+                continue
+            elif comp == 1:
+                print('ROCK!')
+                w = w + 1
+                time.sleep(1)
+                print('You win! You now have ' + str(w) + ' wins!')
+                continue
+            else:
+                print('SCISSORS!')
+                l = l + 1
+                time.sleep(1)
+                print('I win! You now have ' + str(l) + ' losses.')
+                continue
+        # Player selects (r)ock
+        elif move == ('r' or 'R'):
+            print ('ROCK versus...')
+            time.sleep(1)
+            if comp == 0:
+                print('PAPER!')
+                l = l + 1
+                time.sleep(1)
+                print('I win! You now have ' + str(l) + ' losses.')
+                continue
+            elif comp == 1:
+                print('ROCK!')
+                t = t + 1
+                time.sleep(1)
+                print('Tie! We now have ' + str(t) + ' ties.')
+                continue
+            else:
+                print('SCISSORS!')
+                w = w + 1
+                time.sleep(1)
+                print('You win! You now have ' + str(w) + ' wins!')
+                continue
+        #Player selects (s)cissors
+        elif move ==('s' or 'S'):
+            print('SCISSORS versus...')
+            time.sleep(1)
+            if comp == 0:
+                print('PAPER!')
+                w = w + 1
+                time.sleep(1)
+                print('You win! You now have ' + str(w) + ' wins!')
+                continue
+            elif comp == 1:
+                print('ROCK!')
+                l = l + 1
+                time.sleep(1)
+                print('I win! You now have ' + str(l) + ' losses.')
+                continue
+            else:
+                print('SCISSORS!')
+                t = t + 1
+                time.sleep(1)
+                print('Tie! We now have ' + str(t) + ' ties.')
+                continue
+        #Player (q)uits
+        elif move == ('q' or 'Q'):
+            print('Thanks for playing!')
+            print('FINAL SCORE:')
+            print(str(w) + ' Wins, ' + str(l) + ' Losses' + str(t) + ' Ties')
+            break
+        #Player checks score
+        elif move == ('c' or 'C'):
+            print(str(w) + ' Wins, ' + str(l) + ' losses, ' + str(t) + ' Ties')   
+        #Player makes invalid selection
+        else:
+            print('Please enter a valid selection.')
+    
+    
+    if w == 3:
+        time.sleep(1)
+        print('Congratulations! You beat me ' + str(w) + ' to ' + str(l) + '!')
+    elif l == 3:
+        time.sleep(1)
+        print('Too bad, I beat you ' + str(l) + ' to ' + str(w) + '!')
